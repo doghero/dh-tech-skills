@@ -1,4 +1,4 @@
-# Dog Hero Tech Skills
+# DogHero Tech Skills
 
 It's a Growth Tool for planning and supporting our engineers' career development. Made by [Medium](https://medium.com) and improved by [DogHero](https://www.doghero.com.br). You can read more in [growth framework documentation](https://medium.com/s/engineering-growth-framework).
 
