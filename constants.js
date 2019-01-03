@@ -27,6 +27,8 @@ export type MilestoneMap = {
   'COMMUNITY': Milestone
 }
 export const milestones = [0, 1, 2, 3, 4, 5]
+export let handleMilestones = []
+
 
 export const milestoneToPoints = (milestone: Milestone): number => {
   switch (milestone) {
@@ -56,6 +58,13 @@ export const pointsToLevels = {
   '90': '5.1',
   '110': '5.2',
   '135': '5.3',
+}
+
+export const categoryWeight = {
+ 'A': 2,
+ 'B': 1.5,
+ 'C': 1,
+ 'D': 1,
 }
 
 export const maxLevel = 135
@@ -93,7 +102,7 @@ type Tracks = {|
 
 export const tracks: Tracks = {
   "ANDROID": {
-    "displayName": "Android",
+    "displayName": "Building: Android",
     "category": "A",
     "description": "Develops expertise in native Android",
     "milestones": [{
@@ -160,7 +169,7 @@ export const tracks: Tracks = {
   },
 
   "IOS": {
-    "displayName": "iOS",
+    "displayName": "Building: iOS",
     "category": "A",
     "description": "Develops expertise in native iOS",
     "milestones": [{
@@ -227,7 +236,7 @@ export const tracks: Tracks = {
   },
 
   "WEB_CLIENT": {
-    "displayName": "Web client",
+    "displayName": "Building: Web client",
     "category": "A",
     "description": "Develops expertise in web client technologies, such as HTML, CSS, and JavaScript",
     "milestones": [{
@@ -294,7 +303,7 @@ export const tracks: Tracks = {
   },
 
   "DEVOPS": {
-    "displayName": "Devops",
+    "displayName": "Building: Devops",
     "category": "A",
     "description": "Develops expertise in foundational systems, such as deployments, pipelines, databases and CI",
     "milestones": [{
@@ -340,7 +349,7 @@ export const tracks: Tracks = {
   },
 
   "BACKEND": {
-    "displayName": "Backend",
+    "displayName": "Building: Backend",
     "category": "A",
     "description": "Develops expertise in server side engineering, using technologies such as Ruby, Elixir or NodeJS",
     "milestones": [{
@@ -407,7 +416,7 @@ export const tracks: Tracks = {
   },
 
   "PROJECT_MANAGEMENT": {
-    "displayName": "Project management",
+    "displayName": "Executing: Project management",
     "category": "B",
     "description": "Delivers well-scoped programs of work that meet their goals, on time, to budget, harmoniously",
     "milestones": [{
@@ -474,7 +483,7 @@ export const tracks: Tracks = {
   },
 
   "COMMUNICATION": {
-    "displayName": "Communication",
+    "displayName": "Executing: Communication",
     "category": "B",
     "description": "Shares the right amount of information with the right people, at the right time, and listens effectively",
     "milestones": [{
@@ -521,7 +530,7 @@ export const tracks: Tracks = {
   },
 
   "CRAFT": {
-    "displayName": "Craft",
+    "displayName": "Executing: Craft",
     "category": "B",
     "description": "Embodies and promotes practices to ensure excellent quality products and services",
     "milestones": [{
@@ -568,7 +577,7 @@ export const tracks: Tracks = {
   },
 
   "INITIATIVE": {
-    "displayName": "Initiative",
+    "displayName": "Executing: Initiative",
     "category": "B",
     "description": "Challenges the status quo and effects positive organizational change outside of mandated work",
     "milestones": [{
@@ -614,7 +623,7 @@ export const tracks: Tracks = {
   },
 
   "CAREER_DEVELOPMENT": {
-    "displayName": "Career development",
+    "displayName": "Supporting: Career development",
     "category": "C",
     "description": "Provides strategic support to engineers to help them build the career they want",
     "milestones": [{
@@ -661,7 +670,7 @@ export const tracks: Tracks = {
   },
 
   "ORG_DESIGN": {
-    "displayName": "Org design",
+    "displayName": "Supporting: Org design",
     "category": "C",
     "description": "Defines processes and structures that enables the strong growth and execution of a diverse eng organization",
     "milestones": [{
@@ -709,7 +718,7 @@ export const tracks: Tracks = {
   },
 
   "WELLBEING": {
-    "displayName": "Wellbeing",
+    "displayName": "Supporting: Wellbeing",
     "category": "C",
     "description": "Supports the emotional well-being of group members in difficult times, and celebrates their successes",
     "milestones": [{
@@ -756,7 +765,7 @@ export const tracks: Tracks = {
   },
 
   "ACCOMPLISHMENT": {
-    "displayName": "Accomplishment",
+    "displayName": "Supporting: Accomplishment",
     "category": "C",
     "description": "Inspires day to day excellence, maximises potential and effectively resolves performance issues with compassion",
     "milestones": [{
@@ -803,7 +812,7 @@ export const tracks: Tracks = {
   },
 
   "MENTORSHIP": {
-    "displayName": "Mentorship",
+    "displayName": "Strengthening: Mentorship",
     "category": "D",
     "description": "Provides support to colleagues, spreads knowledge, and develops the team outside formal reporting structures",
     "milestones": [{
@@ -850,7 +859,7 @@ export const tracks: Tracks = {
   },
 
   "EVANGELISM": {
-    "displayName": "Evangelism",
+    "displayName": "Strengthening: Evangelism",
     "category": "D",
     "description": "Promotes DogHero to the outside world and establishes it as an attractive and thoughtful place to work",
     "milestones": [{
@@ -896,7 +905,7 @@ export const tracks: Tracks = {
   },
 
   "RECRUITING": {
-    "displayName": "Recruiting",
+    "displayName": "Strengthening: Recruiting",
     "category": "D",
     "description": "Strengthens DogHero's team by bringing in excellent staff members",
     "milestones": [{
@@ -943,7 +952,7 @@ export const tracks: Tracks = {
   },
 
   "COMMUNITY": {
-    "displayName": "Community",
+    "displayName": "Strengthening: Community",
     "category": "D",
     "description": "Builds community internally, gives of themself to the team, and champions and extols company values",
     "milestones": [{
@@ -997,37 +1006,64 @@ export const categoryIds: Set<string> = trackIds.reduce((set, trackId) => {
   return set
 }, new Set())
 
+
+
 export const categoryPointsFromMilestoneMap = (milestoneMap: MilestoneMap) => {
   let pointsByCategory = new Map()
+  
   trackIds.forEach((trackId) => {
     const milestone = milestoneMap[trackId]
     const categoryId = tracks[trackId].category
     let currentPoints = pointsByCategory.get(categoryId) || 0
-    pointsByCategory.set(categoryId, currentPoints + milestoneToPoints(milestone))
+
+    if (categoryId == 'A'){
+      pointsByCategory.set(categoryId, currentPoints + (milestoneToPoints(milestone)) * 1)
+    } else if(categoryId == 'B'){
+      pointsByCategory.set(categoryId, currentPoints + (milestoneToPoints(milestone)) * 0.75)
+    } else{
+      pointsByCategory.set(categoryId, currentPoints + (milestoneToPoints(milestone)) * 0.5)
+    }
   })
+  
   return Array.from(categoryIds.values()).map(categoryId => {
     const points = pointsByCategory.get(categoryId)
     return { categoryId, points: pointsByCategory.get(categoryId) || 0 }
   })
 }
 
-export const totalPointsFromMilestoneMap = (milestoneMap: MilestoneMap): number =>
-  trackIds.map(trackId => milestoneToPoints(milestoneMap[trackId]))
-    .reduce((sum, addend) => (sum + addend), 0)
+
+export const totalPointsFromMilestoneMap = (milestoneMap: MilestoneMap): number => {
+  let weight = 0
+  let total = 0
+
+  trackIds.forEach((trackId) => {
+    const categoryId = tracks[trackId].category
+    console.log('categoryId :', categoryId);
+    if (categoryId == 'A'){
+      weight = 1
+    } else if(categoryId == 'B'){
+      weight = 0.75
+    } else{
+      weight = 0.5
+    }
+    total = total + milestoneToPoints(milestoneMap[trackId]) * weight
+  })
+  return Math.round(total)
+}
 
 export const categoryColorScale = d3.scaleOrdinal()
   .domain(categoryIds)
-  .range(['#00abc2', '#428af6', '#e1439f', '#e54552'])
+  .range(['#EF3A5D', '#66CAD8', '#7C499D', '#008177'])
 
 export const titles = [
-  {label: 'Engineer I', minPoints: 0, maxPoints: 16},
-  {label: 'Engineer II', minPoints: 17, maxPoints: 35},
-  {label: 'Senior Engineer', minPoints: 36, maxPoints: 57},
-  {label: 'Group Lead', minPoints: 36, maxPoints: 57},
-  {label: 'Staff Engineer', minPoints: 58, maxPoints: 89},
-  {label: 'Senior Group Lead', minPoints: 58, maxPoints: 89},
-  {label: 'Principal Engineer', minPoints: 90},
-  {label: 'Director of Engineering', minPoints: 90}
+  {label: 'To be defined', minPoints: 0, maxPoints: 16},
+  {label: 'To be defined', minPoints: 17, maxPoints: 35},
+  {label: 'To be defined', minPoints: 36, maxPoints: 57},
+  {label: 'To be defined', minPoints: 36, maxPoints: 57},
+  {label: 'To be defined', minPoints: 58, maxPoints: 89},
+  {label: 'To be defined', minPoints: 58, maxPoints: 89},
+  {label: 'To be defined', minPoints: 90},
+  {label: 'To be defined', minPoints: 90}
 ]
 
 export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {
