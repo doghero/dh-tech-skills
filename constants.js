@@ -1,7 +1,7 @@
 // @flow
 import * as d3 from 'd3'
 
-export type TrackId = 'ANDROID' | 'IOS' | 'WEB_CLIENT' | 'FOUNDATIONS' | 'SERVERS' |
+export type TrackId = 'ANDROID' | 'IOS' | 'WEB_CLIENT' | 'DEVOPS' | 'BACKEND' |
   'PROJECT_MANAGEMENT' | 'COMMUNICATION' | 'CRAFT' | 'INITIATIVE' |
   'CAREER_DEVELOPMENT' | 'ORG_DESIGN' | 'WELLBEING' | 'ACCOMPLISHMENT' |
   'MENTORSHIP' | 'EVANGELISM' | 'RECRUITING' | 'COMMUNITY'
@@ -11,8 +11,8 @@ export type MilestoneMap = {
   'ANDROID': Milestone,
   'IOS': Milestone,
   'WEB_CLIENT': Milestone,
-  'FOUNDATIONS': Milestone,
-  'SERVERS': Milestone,
+  'DEVOPS': Milestone,
+  'BACKEND': Milestone,
   'PROJECT_MANAGEMENT': Milestone,
   'COMMUNICATION': Milestone,
   'CRAFT': Milestone,
@@ -75,8 +75,8 @@ type Tracks = {|
   'ANDROID': Track,
   'IOS': Track,
   'WEB_CLIENT': Track,
-  'FOUNDATIONS': Track,
-  'SERVERS': Track,
+  'DEVOPS': Track,
+  'BACKEND': Track,
   'PROJECT_MANAGEMENT': Track,
   'COMMUNICATION': Track,
   'CRAFT': Track,
@@ -95,66 +95,66 @@ export const tracks: Tracks = {
   "ANDROID": {
     "displayName": "Android",
     "category": "A",
-    "description": "Develops expertise in native mobile platform engineering, such as iOS or Android",
+    "description": "Develops expertise in native Android",
     "milestones": [{
-      "summary": "Works effectively within established iOS or Android architectures, following current best practices",
+      "summary": "Works effectively within established Android architecture, following current best practices	",
       "signals": [
         "Delivers features requiring simple local modifications",
         "Adds simple actions that call server endpoints",
         "Reuses existing components appropriately",
       ],
       "examples": [
-        "Added existing button to a different iOS surface",
-        "Add follow button for publications on Android",
-        "Fetched and displayed a new stream, using existing stream item styles",
+        "Added existing button to a different Android surface",
+        "Added events + properties tracking to analytics service (ex. Kissmetrics)",
+        "Fetchs new models from our network layer and displays in a simple Activity with ListView",
       ],
     }, {
       "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
       "signals": [
-        "Defines new useful and appropriate proto-generated objects",
-        "Creates simple new activities on Android",
-        "Migrates code from old patterns to new patterns",
+        "Defines and creates new external requests with Android available tools and be able to handle them",
+        "Understands the Android Lifecycle, Context and Application tools",
+        "Be able to convert any class from Java to Kotlin",
       ],
       "examples": [
-        "Upgraded SDWebImage to a new major version",
+        "Migrate OkHttp to Retrofit 2 (asynchronous and synchronous). Usage of Gson lib to parse api results",
         "Added support for rendering a new type of stream item",
         "Prototyped a simple new feature quickly",
       ],
     }, {
-      "summary": "Designs major new features and demonstrates a nuanced understanding of mobile platform constraints",
+      "summary": "Designs major new features and demonstrates a nuanced understanding of android platform constraints",
       "signals": [
-        "Implements complex features with a large product surface area",
-        "Works effectively with  Android reactive programming framework",
-        "Adds support for new iOS features after a major iOS version upgrade",
+        "Implements complex features with a large product surface area including Unit Tests and UI Tests (Espresso/UIAutomator)",
+        "Works effectively with Room, Realm and Phoenix frameworks",
+        "Adds support for new Android features after a major Android version upgrade",
       ],
       "examples": [
-        "Designed iOS caching strategy for offline reading",
-        "Built series reader on Android",
-        "Informed the team about recent best practice changes and deprecations",
+        "Designed Android caching strategy for offline access",
+        "Integrated new payment gateway or implemented real time updating features",
+        "Implemented Picture in Picture; Notification Channels; XML fonts; Adaptive Icons",
       ],
     }, {
       "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
       "signals": [
         "Pioneers architecture migration strategies that reduce programmer burden",
         "Fixes subtle memory management issues",
-        "Implements interactive dismissals that bring delight",
+        "Knows how CI/CD work and can implement a new one from the ground (e.g. Fastlane, Xcode Server, Jenkins, Circle CI, Travis etc).",
       ],
       "examples": [
-        "Upgraded CocoaPods to a new major version",
-        "Designed architecture for fetching and rendering stream items",
-        "Migrated Android persistance layer to reactive programming",
+        "You understand and implement the MVP Architecture and MVVM Architecture",
+        "Finds and resolves memory leaks using Android Profiler in Android Studio, providing better performance.",
+        "Defined and developed DogHero's continuous delivery and integration strategy",
       ],
     }, {
-      "summary": "Is an industry-leading expert in mobile engineering or sets strategic mobile direction for an eng team",
+      "summary": "Is an industry-leading expert in Android engineering or sets strategic mobile direction for an eng team	",
       "signals": [
-        "Defines long-term goals and ensures active projects are in service of them",
-        "Designs and builds innovative, industry-leading UI interactions",
-        "Invents new techniques to responsibly stretch limits of the Android platform",
+        "Meaningfully contributes to major open source projects to Android Community",
+        "Defines and builds industry-leading performatic solutions including solid and reusable architecture, test cases, to provide high crash free and bug free experiences.",
+        "You can easily lead an Android Chapter, bringing smart tech inputs, being admirated as a role model for the team.",
       ],
       "examples": [
-        "Defined and drove complete migration plan to Swift or Kotlin",
-        "Implemented Android recycler views before platform support existed",
-        "Pioneered application-level abstractions for multi-app environment",
+        "Implemented Instant run for Android; Created ActionBarSherlock",
+        "Be able to migrate existing code to Modularized Architecture into Reusable Views; Be able to Modularize App and prepare its to Instant Apps",
+        "You successfully lead the development of a new product from the ground, including setting up a new project, architecture, CI, dependencies, code patterns, performance, etc.",
       ],
     }],
   },
@@ -162,9 +162,9 @@ export const tracks: Tracks = {
   "IOS": {
     "displayName": "iOS",
     "category": "A",
-    "description": "Develops expertise in native mobile platform engineering, such as iOS or Android",
+    "description": "Develops expertise in native iOS",
     "milestones": [{
-      "summary": "Works effectively within established iOS or Android architectures, following current best practices",
+      "summary": "Works effectively within established iOS architecture, following current best practices",
       "signals": [
         "Delivers features requiring simple local modifications",
         "Adds simple actions that call server endpoints",
@@ -172,18 +172,18 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Added existing button to a different iOS surface",
-        "Add follow button for publications on Android",
-        "Fetched and displayed a new stream, using existing stream item styles",
+        "Added events + properties tracking to analytics service (ex. Kissmetrics)",
+        "Fetchs new models from our network layer and displays in a simple UIViewController",
       ],
     }, {
       "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
       "signals": [
-        "Defines new useful and appropriate proto-generated objects",
-        "Creates simple new activities on Android",
-        "Migrates code from old patterns to new patterns",
+        "Defines and creates new delegates and data sources using the iOS Protocol Concept",
+        "Understands the UIKit Framework",
+        "Be able to convert any class from Objective-C to Swift",
       ],
       "examples": [
-        "Upgraded SDWebImage to a new major version",
+        "Upgraded AFNetworking to a new Major Version",
         "Added support for rendering a new type of stream item",
         "Prototyped a simple new feature quickly",
       ],
@@ -196,32 +196,32 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Designed iOS caching strategy for offline reading",
-        "Built series reader on Android",
-        "Informed the team about recent best practice changes and deprecations",
+        "Integrated new payment gateway or implemented real time updating features",
+        "Implemented 3D touch and Rich Push notification widgets right after initial release",
       ],
     }, {
       "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
       "signals": [
         "Pioneers architecture migration strategies that reduce programmer burden",
         "Fixes subtle memory management issues",
-        "Implements interactive dismissals that bring delight",
+        "Knows how CI/CD work and can implement a new one from the ground (e.g. Fastlane, Xcode Server, Jenkins, Circle CI, Travis etc).",
       ],
       "examples": [
-        "Upgraded CocoaPods to a new major version",
-        "Designed architecture for fetching and rendering stream items",
-        "Migrated Android persistance layer to reactive programming",
+        "You understand and implement the URLSession Architecture",
+        "Finds and resolves memory leaks/zombie objects using debugging session memory management in Xcode, providing better performance.",
+        "Defined and developed DogHero's continuous delivery and integration strategy",
       ],
     }, {
       "summary": "Is an industry-leading expert in mobile engineering or sets strategic mobile direction for an eng team",
       "signals": [
-        "Defines long-term goals and ensures active projects are in service of them",
-        "Designs and builds innovative, industry-leading UI interactions",
-        "Invents new techniques to responsibly stretch limits of the Android platform",
+        "Meaningfully contributes to major open source projects to iOS Community",
+        "Defines and builds industry-leading performatic solutions including solid and reusable architecture, test cases, to provide high crash free and bug free experiences.",
+        "You can easily lead an iOS Chapter, bringing smart tech inputs, being admirated as a role model for the team.",
       ],
       "examples": [
-        "Defined and drove complete migration plan to Swift or Kotlin",
-        "Implemented Android recycler views before platform support existed",
-        "Pioneered application-level abstractions for multi-app environment",
+        "Implemented Instant run for iOS",
+        "Be able to migrate existing code to Modularized Architecture into Reusable DHKits",
+        "You successfully lead the development of a new product from the ground, including setting up a new project, architecture, CI, dependencies, code patterns, performance, etc.",
       ],
     }],
   },
@@ -234,49 +234,49 @@ export const tracks: Tracks = {
       "summary": "Works effectively within established web client architectures, following current best practices",
       "signals": [
         "Makes minor modifications to existing screens",
-        "Fixes simple design quality issues",
+        "Makes business logic changes in existing components",
         "Uses CSS appropriately, following style guide",
       ],
       "examples": [
-        "Implemented sticky footer on the post page",
-        "Hooked up the action to dismiss a post from a stream",
-        "Built PaymentHistory screen using ResponseScreen",
+        "Implemented nav-sticky using Bootstrap framework",
+        "Makes simple external API cals and adequately consumes the result",
+        "Properly implements media-queries and css grid system",
       ],
     }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture	",
       "signals": [
         "Makes sensible abstractions based on template and code patterns",
         "Specs and builds interactive components independently",
-        "Prototypes simple new features quickly",
+        "Prototypes simple new features quickly, without side-effects",
       ],
       "examples": [
-        "Built credit card input component",
-        "Created shared buttons template",
-        "Built modal system",
+        "Built a modular input component, like Address or Payment Method which could be re-used on other places",
+        "Manipulates and handles data accross different components using IO. Ex. Adds new credit card and automatically refreshes credit card listing",
+        "Implements CSS + SVG animations to deliver high quality experiences to users",
       ],
     }, {
       "summary": "Designs major new features and demonstrates a nuanced understanding of browser constraints",
       "signals": [
-        "Provides useful design feedback and suggests feasible alternatives",
+        "Understands the complexity of development tasks and brings relevant technical insights to the team",
         "Performs systemic tasks to significantly minimise bundle size",
         "Acts a caretaker for all of web client code",
       ],
       "examples": [
-        "Designed font loading strategy for Medium",
-        "Researched utility of service workers for Medium",
-        "Designed and implemented ResponseScreen",
+        "Fully implemented a new payment gateway and/or other major new features",
+        "Deeply understands and implements Angular's lifecicle",
+        "Crafts pixel perfect layout implementations, cross-browser/device. Using best practices in SEO, performance, semantic HTML, markups and ensuring scalability",
       ],
     }, {
       "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
       "signals": [
         "Pioneers architecture migrations that reduce programmer burden",
-        "Implements complex UI transitions that bring delight",
+        "Constantly contributes to improve scalability and performance of the project",
         "Makes architectural decisions that eliminate entire classes of bugs",
       ],
       "examples": [
-        "Designed Medium's post morpher and delta system",
-        "Implemented Medium's scrolling text over image blur",
-        "Designed and pioneered proto-based model storage",
+        "Suggests and implements architectural changes that are relevant to the project",
+        "Conceptualized and implemented the transition from Scooby to Courage.",
+        "Consistently Implements Lazy loading strategies to optimize performance",
       ],
     }, {
       "summary": "Is an industry-leading expert in web client or sets strategic web client direction for an eng team",
@@ -286,17 +286,17 @@ export const tracks: Tracks = {
         "Defines a long-term vision for web client and ensures projects are in service of it",
       ],
       "examples": [
-        "Invented CSS in JS",
-        "Defined and drove migration strategy to Lite",
-        "Implemented unidirectional data flow to completion",
+        "Meaningfully contributes to major open source projects",
+        "Defined and lead the transition to PWA resulting in major conversion gains on DH's mobile offering",
+        "Is a techical reference to the team, evangelizing best practices and elevating quality standards",
       ],
     }],
   },
 
-  "FOUNDATIONS": {
-    "displayName": "Foundations",
+  "DEVOPS": {
+    "displayName": "Devops",
     "category": "A",
-    "description": "Develops expertise in foundational systems, such as deployments, pipelines, databases and machine learning",
+    "description": "Develops expertise in foundational systems, such as deployments, pipelines, databases and CI",
     "milestones": [{
       "summary": "Works effectively within established structures, following current best practices",
       "signals": [
@@ -360,33 +360,33 @@ export const tracks: Tracks = {
     }],
   },
 
-  "SERVERS": {
-    "displayName": "Servers",
+  "BACKEND": {
+    "displayName": "Backend",
     "category": "A",
-    "description": "Develops expertise in server side engineering, using technologies such as Go, NodeJS, or Scala",
+    "description": "Develops expertise in server side engineering, using technologies such as Ruby, Elixir or NodeJS",
     "milestones": [{
-      "summary": "Works effectively within established server side frameworks, following current best practices",
+      "summary": "Works effectively within established server side frameworks, following current best practices	",
       "signals": [
-        "Adds NodeJS endpoints using layers architecture",
-        "Adds golang endpoints using Gotham architecture",
+        "Creates CRUD API's",
+        "Adds rails endpoints adequately using current architecture",
         "Makes minor server changes to support client needs",
       ],
       "examples": [
-        "Added IFTTT trigger for new bookmark to medium2",
-        "Added delete audio route to Buggle",
-        "Queried a Dynamo LSI appropriately",
+        "Implemented the backend structure for the Stories service",
+        "Change views of endpoints",
+        "Works primarily on tightly scoped, routine problems.",
       ],
     }, {
       "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
       "signals": [
-        "Assesses correctness and utility of existing code and avoids blind copy-pasting",
+        "Creates new API's endpoints that are non-derivetive (i.e no copy paste modify)",
         "Generalizes code when appropriate",
         "Determines data needs from product requirements",
       ],
       "examples": [
-        "Identified need for new index on Dynamo",
-        "Acted as caretaker for routes protos",
-        "Updated Facebook API version and codebase dependencies",
+        "Created new 'addresses' service/API solving significant and recurring bug's",
+        "Consistently uses TDD to guarantee code quality",
+        "Refactored the list API endpoing to significantly increase product performance",
       ],
     }, {
       "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
@@ -396,9 +396,9 @@ export const tracks: Tracks = {
         "Writes playbooks for new service maintenance",
       ],
       "examples": [
-        "Implemented Google Auth login to Medium",
-        "Implemented payments integration with Stripe",
-        "Built Textshots server",
+        "Mantains and update Elastic Search implementation of Search algo",
+        "Implemented payments integration with Mercado Pago and/or Iugu using Financials structure",
+        "Built Penutbutter image server",
       ],
     }, {
       "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
@@ -408,9 +408,9 @@ export const tracks: Tracks = {
         "Makes appropriate buy vs build choices",
       ],
       "examples": [
-        "Designed Medium's ranked feed architecture",
-        "Designed custom domains architecture",
-        "Created Gotham framework for creating Go services",
+        "Migrated Reservations to Boardings structure, erradicating significant technical debt",
+        "Planned and implemented complete migration from Quickblox to Ideafix",
+        "Created the Financials Structure to properly conciliate payments/revenue",
       ],
     }, {
       "summary": "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
@@ -420,9 +420,9 @@ export const tracks: Tracks = {
         "Identifies and solves systemic problems with current architecture",
       ],
       "examples": [
-        "Researched, vetted, and selected Go as Medium's statically typed language",
-        "Defined microservices architecture and medium2 migration plan",
-        "Defined and implemented proprietary IP core to the company's success",
+        "Researched, vetted, selected and implemented a new programing language (Scala, Elixir, Node...) to substitute Rails as the core programming language",
+        "Planned and migrated Scooby to a new micro services structure, significantly enhancing performance and scalability of the system",
+        "Implemented changes to the adopted framework's core to significantly enhance performance",
       ],
     }],
   },
