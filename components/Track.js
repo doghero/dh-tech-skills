@@ -3,6 +3,7 @@
 import { tracks, milestones, categoryColorScale } from '../constants'
 import React from 'react'
 import type { MilestoneMap, TrackId, Milestone } from '../constants'
+import Exempl from './Exempl'
 
 type Props = {
   milestoneByTrack: MilestoneMap,
@@ -81,10 +82,6 @@ class Track extends React.Component<Props> {
                   <li key={i}>{example}</li>
                 ))}
               </ul>
-              <form>
-                <label>Explain and exemplify your level:</label> <br />
-                <textarea placeholder="Provide concrete evidence that supports the level you have chosen. Which tasks/projects/behaviours have you demonstrated?"></textarea>
-              </form>
             </div>
           ) : null}
         </div>
