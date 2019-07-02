@@ -165,6 +165,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                 <option value="luis">Luis Ribeiro</option>
                 <option value="felipeh">Luiz Felipeh</option>
                 <option value="romito">Gustavo Romito</option>
+                <option value="jesus">Luis Vieira</option>
               </select>
               <TitleSelector
                 milestoneByTrack={this.state.milestoneByTrack}
