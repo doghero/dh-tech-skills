@@ -1056,20 +1056,14 @@ export const categoryColorScale = d3.scaleOrdinal()
   .range(['#EF3A5D', '#66CAD8', '#7C499D', '#008177'])
 
 export const titles = [
-  {label: 'To be defined', minPoints: 0, maxPoints: 16},
-  {label: 'To be defined', minPoints: 17, maxPoints: 35},
-  {label: 'To be defined', minPoints: 36, maxPoints: 57},
-  {label: 'To be defined', minPoints: 36, maxPoints: 57},
-  {label: 'To be defined', minPoints: 58, maxPoints: 89},
-  {label: 'To be defined', minPoints: 58, maxPoints: 89},
-  {label: 'To be defined', minPoints: 90},
-  {label: 'To be defined', minPoints: 90}
+  {label: 'Auto avaliação', minPoints: 0, maxPoints: 16},
+  {label: 'Gestor direto', minPoints: 0, maxPoints: 16},
+  {label: 'Gestor indireto', minPoints: 0, maxPoints: 16},
+  {label: 'Outro', minPoints: 0, maxPoints: 16}
 ]
 
 export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {
   const totalPoints = totalPointsFromMilestoneMap(milestoneMap)
 
-  return titles.filter(title => (title.minPoints === undefined || totalPoints >= title.minPoints)
-                             && (title.maxPoints === undefined || totalPoints <= title.maxPoints))
-    .map(title => title.label)
+	return titles.map(title => title.label);
 }
