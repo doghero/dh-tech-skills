@@ -3,7 +3,7 @@ import axios from 'axios';
 
 type Props = {}
 
-const api = 'http://127.0.0.1:5000/review/create';
+const api = 'https://apireview.doghero.com.br/review/create';
 
 class Submiter extends React.Component {
 	submitPerformace = () => {
