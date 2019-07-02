@@ -1059,11 +1059,12 @@ export const titles = [
   {label: 'Tipo de avaliação', minPoints: 0, maxPoints: 16},
   {label: 'Esta é uma auto-avaliação', minPoints: 0, maxPoints: 16},
   {label: 'Par de squad/time', minPoints: 0, maxPoints: 16},
-  {label: 'Líder de squad/time que sou integrante', minPoints: 0, maxPoints: 16},
   {label: 'Meu gestor direto', minPoints: 0, maxPoints: 16},
+  {label: 'Meu gestor indireto', minPoints: 0, maxPoints: 16},
   {label: 'Integrante do squad/time que eu lidero', minPoints: 0, maxPoints: 16},
   {label: 'Integrante de outro squad/time', minPoints: 0, maxPoints: 16},
-  {label: 'Reporta pra mim', minPoints: 0, maxPoints: 16}
+  {label: 'Reporta pra mim', minPoints: 0, maxPoints: 16},
+  {label: 'Liderado indireto', minPoints: 0, maxPoints: 16}
 ]
 
 export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {
