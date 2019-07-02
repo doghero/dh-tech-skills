@@ -21,9 +21,8 @@ class Submiter extends React.Component {
 		return (
 			<div>
 				<p>Para seu review siga essas regras:</p>
-				<p>1- Auto avaliação ou gestor direto: descrever cada nota.</p>
-				<p>2- Outros ou gestor indireto: descrever cada quadrante apenas.</p>
-				<p>Por exemplo:&#10;Building: Essas notas por conta disso.&#10;Building Android: Essa nota por conta disso.</p>
+				<p>1- Se você está avaliando alguém do seu squad ou time, descreva cada nota dada.</p>
+				<p>2- Se você está avaliando alguém que não é do seu time, descreva uma nota por quadrante apenas.</p>
 				<textarea id="review" cols="100" rows="33" placeholder="Descreva aqui o motivo de suas notas.">
 				</textarea>
 				<br /><br/>
