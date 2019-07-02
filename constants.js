@@ -46,18 +46,18 @@ export const pointsToLevels = {
   '0': '1.1',
   '5': '1.2',
   '11': '1.3',
-  '17': '2.1',
-  '23': '2.2',
-  '29': '2.3',
-  '36': '3.1',
-  '43': '3.2',
-  '50': '3.3',
-  '58': '4.1',
-  '66': '4.2',
-  '74': '4.3',
-  '90': '5.1',
-  '110': '5.2',
-  '135': '5.3',
+  '19': '2.1',
+  '26': '2.2',
+  '33': '2.3',
+  '45': '3.1',
+  '60': '3.2',
+  '80': '3.3',
+  '100': '4.1',
+  '120': '4.2',
+  '140': '4.3',
+  '170': '5.1',
+  '200': '5.2',
+  '240': '5.3',
 }
 
 export const categoryWeight = {
@@ -67,7 +67,7 @@ export const categoryWeight = {
  'D': 1,
 }
 
-export const maxLevel = 135
+export const maxLevel = 240
 
 export type Track = {
   displayName: string,
@@ -1056,6 +1056,7 @@ export const categoryColorScale = d3.scaleOrdinal()
   .range(['#EF3A5D', '#66CAD8', '#7C499D', '#008177'])
 
 export const titles = [
+  {label: 'Tipo de avaliação', minPoints: 0, maxPoints: 16},
   {label: 'Esta é uma auto-avaliação', minPoints: 0, maxPoints: 16},
   {label: 'Par de squad/time', minPoints: 0, maxPoints: 16},
   {label: 'Líder de squad/time que sou integrante', minPoints: 0, maxPoints: 16},

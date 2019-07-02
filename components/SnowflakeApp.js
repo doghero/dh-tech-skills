@@ -156,16 +156,15 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                 onChange={e => this.setState({ name: e.target.value })}
               >
                 <option value="">Nome</option>
+                <option value="jorge">Jorge Silveira</option>
                 <option value="andre">Andre Verissimo</option>
                 <option value="thiago">Thiago Bittencourt</option>
                 <option value="tiago">Tiago Almeida</option>
                 <option value="fernando">Fernando Medin</option>
                 <option value="mellon">Guilherme Mellon</option>
                 <option value="luis">Luis Ribeiro</option>
-                <option value="jesus">Luis Gustavo Vieira</option>
                 <option value="felipeh">Luiz Felipeh</option>
                 <option value="romito">Gustavo Romito</option>
-                <option value="tales">Tales Galvão</option>
               </select>
               <TitleSelector
                 milestoneByTrack={this.state.milestoneByTrack}
