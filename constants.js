@@ -1056,10 +1056,13 @@ export const categoryColorScale = d3.scaleOrdinal()
   .range(['#EF3A5D', '#66CAD8', '#7C499D', '#008177'])
 
 export const titles = [
-  {label: 'Auto avaliação', minPoints: 0, maxPoints: 16},
-  {label: 'Gestor direto', minPoints: 0, maxPoints: 16},
-  {label: 'Gestor indireto', minPoints: 0, maxPoints: 16},
-  {label: 'Outro', minPoints: 0, maxPoints: 16}
+  {label: 'Esta é uma auto-avaliação', minPoints: 0, maxPoints: 16},
+  {label: 'Par de squad/time', minPoints: 0, maxPoints: 16},
+  {label: 'Líder de squad/time que sou integrante', minPoints: 0, maxPoints: 16},
+  {label: 'Meu gestor direto', minPoints: 0, maxPoints: 16},
+  {label: 'Integrante do squad/time que eu lidero', minPoints: 0, maxPoints: 16},
+  {label: 'Integrante de outro squad/time', minPoints: 0, maxPoints: 16},
+  {label: 'Reporta pra mim', minPoints: 0, maxPoints: 16}
 ]
 
 export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {

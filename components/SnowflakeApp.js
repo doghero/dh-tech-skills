@@ -73,32 +73,7 @@ const emptyState = (): SnowflakeAppState => {
   }
 }
 
-const defaultState = (): SnowflakeAppState => {
-  return {
-    name: 'Cersei Lannister',
-    title: 'Outro',
-    milestoneByTrack: {
-      'ANDROID': 1,
-      'IOS': 1,
-      'WEB_CLIENT': 2,
-      'DEVOPS': 3,
-      'BACKEND': 2,
-      'PROJECT_MANAGEMENT': 4,
-      'COMMUNICATION': 1,
-      'CRAFT': 1,
-      'INITIATIVE': 4,
-      'CAREER_DEVELOPMENT': 3,
-      'ORG_DESIGN': 2,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 4,
-      'MENTORSHIP': 2,
-      'EVANGELISM': 2,
-      'RECRUITING': 3,
-      'COMMUNITY': 0
-    },
-    focusedTrackId: 'ANDROID'
-  }
-}
+const defaultState = emptyState;
 
 const stateToHash = (state: SnowflakeAppState) => {
   if (!state || !state.milestoneByTrack) return null
