@@ -149,7 +149,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             width: 380px;
             margin-bottom: 10px;
           }
-          .name-input:hover, .name-input:focus {
+          .name-input:hover,
+          .name-input:focus {
             border-bottom: 2px solid #ccc;
             outline: 0;
           }
@@ -157,59 +158,101 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             color: #888;
             text-decoration: none;
           }
+          select {
+            font-size: 20px;
+            line-height: 20px;
+            margin-bottom: 20px;
+            min-width: 250px;
+            margin-right: 5px;
+          }
         `}</style>
-        <div style={{margin: '19px auto 0', width: 142}}>
+        <div style={{ margin: '19px auto 0', width: 142 }}>
           <a href="https://www.doghero.com.br/" target="_blank">
             <Wordmark />
           </a>
         </div>
-        <div style={{display: 'flex'}}>
-          <div style={{flex: 1}}>
+        <div style={{ display: 'flex' }}>
+          <div style={{ flex: 1 }}>
             <form>
-              <input
-                  type="text"
-                  className="name-input"
-                  value={this.state.name}
-                  onChange={e => this.setState({name: e.target.value})}
-                  placeholder="Name"
-                  />
+              <h3>Selecione uma pessoa para avaliar:</h3>
+              <select
+                class="select-name"
+                value={this.state.name}
+                onChange={e => this.setState({ name: e.target.value })}
+              >
+                <option value="">Nome</option>
+                <option value="andre">Andre Verissimo</option>
+                <option value="thiago">Thiago Bittencourt</option>
+                <option value="tiago">Tiago Almeida</option>
+                <option value="fernando">Fernando Medin</option>
+                <option value="mellon">Guilherme Mellon</option>
+                <option value="luis">Luis Ribeiro</option>
+                <option value="jesus">Luis Gustavo Vieira</option>
+                <option value="felipeh">Luiz Felipeh</option>
+                <option value="romito">Gustavo Romito</option>
+                <option value="tales">Tales Galvão</option>
+              </select>
               <TitleSelector
-                  milestoneByTrack={this.state.milestoneByTrack}
-                  currentTitle={this.state.title}
-                  setTitleFn={(title) => this.setTitle(title)} />
-            </form>
-            <PointSummaries milestoneByTrack={this.state.milestoneByTrack} />
-            <LevelThermometer milestoneByTrack={this.state.milestoneByTrack} />
-          </div>
-          <div style={{flex: 0}}>
-            <NightingaleChart
                 milestoneByTrack={this.state.milestoneByTrack}
-                focusedTrackId={this.state.focusedTrackId}
-                handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
+                currentTitle={this.state.title}
+                setTitleFn={title => this.setTitle(title)}
+              />
+            </form>
+            <PointSummaries
+              milestoneByTrack={this.state.milestoneByTrack}
+            />
+            <LevelThermometer
+              milestoneByTrack={this.state.milestoneByTrack}
+            />
+          </div>
+          <div style={{ flex: 0 }}>
+            <NightingaleChart
+              milestoneByTrack={this.state.milestoneByTrack}
+              focusedTrackId={this.state.focusedTrackId}
+              handleTrackMilestoneChangeFn={(track, milestone) =>
+                this.handleTrackMilestoneChange(track, milestone)
+              }
+            />
           </div>
         </div>
         <TrackSelector
-            milestoneByTrack={this.state.milestoneByTrack}
-            focusedTrackId={this.state.focusedTrackId}
-            setFocusedTrackIdFn={this.setFocusedTrackId.bind(this)} />
+          milestoneByTrack={this.state.milestoneByTrack}
+          focusedTrackId={this.state.focusedTrackId}
+          setFocusedTrackIdFn={this.setFocusedTrackId.bind(this)}
+        />
         <KeyboardListener
-            selectNextTrackFn={this.shiftFocusedTrack.bind(this, 1)}
-            selectPrevTrackFn={this.shiftFocusedTrack.bind(this, -1)}
-            increaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, 1)}
-            decreaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, -1)} />
+          selectNextTrackFn={this.shiftFocusedTrack.bind(this, 1)}
+          selectPrevTrackFn={this.shiftFocusedTrack.bind(this, -1)}
+          increaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(
+            this,
+            1
+          )}
+          decreaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(
+            this,
+            -1
+          )}
+        />
         <Track
-            
-            milestoneByTrack={this.state.milestoneByTrack}
-            trackId={this.state.focusedTrackId}
-            handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
-		<Submiter /><br /><br />
-        <div style={{display: 'flex', paddingBottom: '20px'}}>
-          <div style={{flex: 1}}>
-            Made with ❤️ by <a href="https://medium.engineering" target="_blank">Medium Eng</a> and improved by <a href="https://www.doghero.com.br">DogHero</a>
+          milestoneByTrack={this.state.milestoneByTrack}
+          trackId={this.state.focusedTrackId}
+          handleTrackMilestoneChangeFn={(track, milestone) =>
+            this.handleTrackMilestoneChange(track, milestone)
+          }
+        />
+        <Submiter />
+        <br />
+        <br />
+        <div style={{ display: 'flex', paddingBottom: '20px' }}>
+          <div style={{ flex: 1 }}>
+            Made with ❤️ by{' '}
+            <a href="https://medium.engineering" target="_blank">
+              Medium Eng
+            </a>{' '}
+            and improved by <a href="https://www.doghero.com.br">DogHero</a>
           </div>
         </div>
       </main>
-    )
+    );
   }
 
   handleTrackMilestoneChange(trackId: TrackId, milestone: Milestone) {
